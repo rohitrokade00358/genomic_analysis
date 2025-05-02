@@ -1,0 +1,491 @@
+/* Dashboard Container */
+.dashboard-container {
+    background-image: url("https://img.freepik.com/premium-photo/genome-sequencing-personalized-medicine-solid-color-background-hyper-real-hd-4k_964851-130691.jpg?w=1060");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .logo-img {
+    width: 120px; /* Adjust width */
+    height: 90px; /* Adjust height */
+    object-fit: contain; /* Ensure it maintains aspect ratio */
+    margin-bottom: 5px; /* Space between logo and title */
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #1e1e2f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  .sidebar .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center; /* Ensure text is centered */
+    margin-bottom: 20px;
+  }
+
+  .sidebar .logo .title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    width: 100%;
+  }
+  
+  .sidebar-btn {
+    width: 100%;
+    background: transparent;
+    color: #ffffff;
+    padding: 15px 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .sidebar-btn .icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .sidebar.collapsed .sidebar-btn .icon {
+    margin-right: 0;
+    margin-top:20px;
+  }
+  
+  .sidebar.collapsed .sidebar-btn {
+    justify-content: center;
+  }
+  
+  .sidebar-btn:hover, .sidebar-btn:focus {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-btn.active {
+    background: #4a90e2;
+  }
+  
+  /* Sidebar Collapse Button */
+  .collapse-btn {
+    position: absolute;
+    top: 10px;
+    right:10px;
+    background: #1e1e2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: transform 0.3s;
+  }
+  
+  .sidebar.collapsed .collapse-btn {
+    transform: rotate(180deg);
+  }
+  
+  /* Logout Button */
+  .logout-btn {
+    width: 80%;
+    padding: 10px;
+    margin-top: auto;
+    background: #ef4444;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background: #d13030;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Sidebar */
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      width: 60px;
+    }
+  
+    .sidebar .logo {
+      display: none;
+    }
+  
+    .sidebar-btn {
+      padding: 15px;
+      justify-content: center;
+      font-size: 16px;
+    }
+  
+    .logout-btn {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+  }
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .dashboard-container.collapsed .main-content {
+    margin-left: 60px;
+  }
+  
+  
+  /* User Dashboard & Analysis Panel */
+  .user-dashboard, .analysis-panel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%; /* Make it responsive */
+    text-align: center;
+  }
+  
+  /* Ensure proper layout on smaller screens */
+  @media screen and (max-width: 1024px) {
+    .main-content {
+      padding: 100px 20px; /* Reduce padding */
+    }
+  
+    .user-dashboard, .analysis-panel {
+      width: 90%; /* Use more space */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .main-content {
+      margin-left: 0;
+      padding: 50px 15px; /* Adjust padding for smaller screens */
+    }
+  
+    .user-dashboard, .analysis-panel {
+      width: 95%; /* Expand to almost full width */
+      padding: 15px; /* Reduce padding */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .user-dashboard, .analysis-panel {
+      padding: 10px; /* Reduce padding */
+    }
+  
+    .process-btn, .delete-btn {
+     
+      padding: 12px;
+      font-size: 14px; /* Adjust font size */
+    }
+  
+    .file-note {
+      font-size: 12px;
+    }
+   
+  }
+  
+  /* Input Fields */
+  .user-dashboard input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Process Button */
+  .process-btn {
+    background: #44b1c4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+  }
+  
+  .process-btn:hover {
+    background: #219150;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+  }
+  
+  .delete-btn:hover {
+    background: #ef4444;
+  }
+  
+  .file-note {
+    color: red;
+  }
+  
+  .labid{
+    font-size:22px;
+    font-weight:bold;
+    color:rgb(19, 117, 135);
+  }
+
+/* History Panel */
+.history-panel {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1000px; /* Adjust as needed */
+  margin: 20px auto;
+  text-align: center;
+}
+
+.history-panel h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.history-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.history-panel th,
+.history-panel td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.history-panel th {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+}
+
+.history-panel tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.history-panel tr:hover {
+  background-color: #f1f1f1;
+}
+
+.history-panel td {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+  .history-panel {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .history-panel table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .history-panel th,
+  .history-panel td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .history-panel {
+    padding: 10px;
+  }
+
+  .history-panel h2 {
+    font-size: 20px;
+  }
+
+  .history-panel th,
+  .history-panel td {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+/* Edit Mode Styles */
+.user-dashboard form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.user-dashboard form label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.user-dashboard form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.user-dashboard form input:disabled {
+  background-color: #f0f0f0;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.user-dashboard form button {
+  background-color: #44b1c4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-dashboard form button:hover {
+  background-color: #219150;
+}
+
+
+/* Table under Analysis Panel */
+.analysis-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.analysis-panel th,
+.analysis-panel td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.analysis-panel th {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+}
+
+.analysis-panel tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.analysis-panel tr:hover {
+  background-color: #f1f1f1;
+}
+
+.analysis-panel td {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Increased Image Size */
+.analysis-panel td img {
+  width: 400px; /* Increase the width to make the image bigger */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: Add rounded corners to the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a better effect */
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+  .analysis-panel table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .analysis-panel th,
+  .analysis-panel td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .analysis-panel td img {
+    width: 300px; /* Adjust the image size on smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .analysis-panel th,
+  .analysis-panel td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .analysis-panel td img {
+    width: 150px; /* Adjust the image size on very small screens */
+  }
+}

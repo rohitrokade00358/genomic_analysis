@@ -1,0 +1,123 @@
+/* Footer Styles */
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Section - Logo & Address */
+.footer-left {
+  text-align: left;
+  max-width: 350px;
+}
+
+.footer-logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.genovate {
+  color: #F08F00; /* Orange */
+}
+
+.ai {
+  color: #2196F3; /* Blue */
+}
+
+.footer-left p {
+  margin: 8px 0;
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.footer-left a {
+  color: #F08F00;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.footer-left a:hover {
+  text-decoration: underline;
+}
+
+/* Right Section - Navigation Links with Icons */
+.footer-right {
+  text-align: right;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin: 12px 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-nav li:hover {
+  color: #F08F00; /* Orange */
+}
+
+/* Icons */
+.footer-icon {
+  font-size: 1.5rem;
+  color: #F08F00; /* Orange */
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-nav li:hover .footer-icon {
+  transform: scale(1.2);
+}
+
+/* Bottom Section - Copyright */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #bbb;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 2rem;
+  }
+
+  .footer-nav li {
+    font-size: 1.2rem;
+  }
+
+  .footer-icon {
+    font-size: 1.3rem;
+  }
+}

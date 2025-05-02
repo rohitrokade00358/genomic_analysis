@@ -1,0 +1,29 @@
+{% extends "base1.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Annotation Prediction</title>
+</head>
+<body>
+    <h1>Gene Annotation and Treatment Prediction</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if predicted_annotation %}
+        <h2>Prediction Results:</h2>
+        <p><strong>Gene:</strong> {{ gene }}</p>
+        <p><strong>Sequence:</strong> {{ sequence }}</p>
+        <p><strong>Predicted Functional Annotation:</strong> {{ predicted_annotation }}</p>
+        <p><strong>Suggested Treatment:</strong> {{ predicted_treatment }}</p>
+    {% endif %}
+</body>
+</html>
+{% endblock %}
